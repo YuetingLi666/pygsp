@@ -13,7 +13,7 @@ from matplotlib import pyplot as plt
 import pygsp as pg
 
 n_side = 13
-G = pg.graphs.Grid2d(n_side)
+G = pg.graphs.Minnesota(n_side)
 G.compute_fourier_basis()
 
 sources = [
@@ -27,7 +27,7 @@ times = [0, 5, 10, 20]
 
 fig, axes = plt.subplots(2, len(times), figsize=(12, 5))
 for i, t in enumerate(times):
-    g = pg.filters.Heat(G, scale=t)
+    g = pg.filters.Meyer(G)
     title = r'$\hat{{f}}({0}) = g_{{1,{0}}} \odot \hat{{f}}(0)$'.format(t)
     g.plot(alpha=1, ax=axes[0, i], title=title)
     axes[0, i].set_xlabel(r'$\lambda$')

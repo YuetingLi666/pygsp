@@ -58,3 +58,4 @@ class Minnesota(Graph):
 
     def _get_extra_repr(self):
         return dict(connected=self.connected)
+
