@@ -35,7 +35,9 @@ for i, t in enumerate(times):
     if i > 0:
         axes[0, i].set_ylabel('')
     y = g.filter(x)
-    line, = axes[0, i].plot(G.e, G.gft(y))
+    print(len(G.e))
+    print(len(G.gft(y)))
+    line = axes[0, i].plot(G.e, G.gft(y))
     labels = [r'$\hat{{f}}({})$'.format(t), r'$g_{{1,{}}}$'.format(t)]
     axes[0, i].legend([line, axes[0, i].lines[-3]], labels, loc='lower right')
     G.plot(y, edges=False, highlight=sources, ax=axes[1, i], title=r'$f({})$'.format(t))
